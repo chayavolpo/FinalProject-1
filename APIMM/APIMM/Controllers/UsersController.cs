@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,13 +8,14 @@ using System.Web.Http;
 
 namespace APIMM.Controllers
 {
-    [RoutePrefix("users")]
+    [RoutePrefix("clerks")]
     public class UsersController : ApiController
     {
+        [HttpPost]
         [Route("login")]
-        public User Login(User loginUser)
+        public ClerkDTO Login(ClerkDTO loginUser)
         {
-            return new User();
+            return new ClerkDTO();
         }
 
     }

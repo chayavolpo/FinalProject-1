@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataBaseMMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AmountPeopleInShelter">
+    <Key>
+      <PropertyRef Name="AmountpplKey" />
+    </Key>
+    <Property Name="AmountpplKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShelterKey" Type="Int32" Nullable="false" />
+    <Property Name="AmountPPLSpeDH" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Time" Type="Time" Precision="7" />
+    <NavigationProperty Name="Shelter" Relationship="Self.FK_AmountPeopleInShelter_Shelters" FromRole="AmountPeopleInShelter" ToRole="Shelters" />
+  </EntityType>
+  <EntityType Name="Clerk">
+    <Key>
+      <PropertyRef Name="ClerkKey" />
+    </Key>
+    <Property Name="ClerkKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClerkFName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClerkLName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClerkPassword" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="IfManager" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Shelter">
+    <Key>
+      <PropertyRef Name="ShelterKey" />
+    </Key>
+    <Property Name="ShelterKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LatShelter" Type="Double" Nullable="false" />
+    <Property Name="LngShelter" Type="Double" Nullable="false" />
+    <Property Name="MaxPeople" Type="Int32" />
+    <Property Name="ShelterDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AmountPeopleInShelters" Relationship="Self.FK_AmountPeopleInShelter_Shelters" FromRole="Shelters" ToRole="AmountPeopleInShelter" />
+  </EntityType>
+  <Association Name="FK_AmountPeopleInShelter_Shelters">
+    <End Role="Shelters" Type="Self.Shelter" Multiplicity="1" />
+    <End Role="AmountPeopleInShelter" Type="Self.AmountPeopleInShelter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shelters">
+        <PropertyRef Name="ShelterKey" />
+      </Principal>
+      <Dependent Role="AmountPeopleInShelter">
+        <PropertyRef Name="ShelterKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBMMEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AmountPeopleInShelters" EntityType="Self.AmountPeopleInShelter" />
+    <EntitySet Name="Clerks" EntityType="Self.Clerk" />
+    <EntitySet Name="Shelters" EntityType="Self.Shelter" />
+    <AssociationSet Name="FK_AmountPeopleInShelter_Shelters" Association="Self.FK_AmountPeopleInShelter_Shelters">
+      <End Role="Shelters" EntitySet="Shelters" />
+      <End Role="AmountPeopleInShelter" EntitySet="AmountPeopleInShelters" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

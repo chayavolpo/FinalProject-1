@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataBaseMMModelStoreContainer" CdmEntityContainer="DBMMEntities">
+    <EntitySetMapping Name="AmountPeopleInShelters">
+      <EntityTypeMapping TypeName="DataBaseMMModel.AmountPeopleInShelter">
+        <MappingFragment StoreEntitySet="AmountPeopleInShelter">
+          <ScalarProperty Name="AmountpplKey" ColumnName="AmountpplKey" />
+          <ScalarProperty Name="ShelterKey" ColumnName="ShelterKey" />
+          <ScalarProperty Name="AmountPPLSpeDH" ColumnName="AmountPPLSpeDH" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clerks">
+      <EntityTypeMapping TypeName="DataBaseMMModel.Clerk">
+        <MappingFragment StoreEntitySet="Clerks">
+          <ScalarProperty Name="ClerkKey" ColumnName="ClerkKey" />
+          <ScalarProperty Name="ClerkFName" ColumnName="ClerkFName" />
+          <ScalarProperty Name="ClerkLName" ColumnName="ClerkLName" />
+          <ScalarProperty Name="ClerkPassword" ColumnName="ClerkPassword" />
+          <ScalarProperty Name="IfManager" ColumnName="IfManager" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shelters">
+      <EntityTypeMapping TypeName="DataBaseMMModel.Shelter">
+        <MappingFragment StoreEntitySet="Shelters">
+          <ScalarProperty Name="ShelterKey" ColumnName="ShelterKey" />
+          <ScalarProperty Name="LatShelter" ColumnName="LatShelter" />
+          <ScalarProperty Name="LngShelter" ColumnName="LngShelter" />
+          <ScalarProperty Name="MaxPeople" ColumnName="MaxPeople" />
+          <ScalarProperty Name="ShelterDescription" ColumnName="ShelterDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
