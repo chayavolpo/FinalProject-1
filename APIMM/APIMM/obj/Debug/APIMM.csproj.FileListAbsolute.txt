@@ -200,3 +200,18 @@ C:\Users\User\Desktop\Project\FinalProject\APIMM\APIMM\obj\Debug\APIMM.csproj.Co
 C:\Users\User\Desktop\Project\FinalProject\APIMM\APIMM\obj\Debug\APIMM.csproj.CopyComplete
 C:\Users\User\Desktop\Project\FinalProject\APIMM\APIMM\obj\Debug\APIMM.dll
 C:\Users\User\Desktop\Project\FinalProject\APIMM\APIMM\obj\Debug\APIMM.pdb
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\APIMM\bin\DAL.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\APIMM\bin\DTO.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\APIMM\bin\EntityFramework.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\APIMM\bin\DAL.pdb
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\APIMM\bin\DAL.dll.config
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\APIMM\bin\DTO.pdb
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\APIMM\bin\DTO.dll.config
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\APIMM\bin\EntityFramework.xml
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\APIMM\bin\System.Web.Cors.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\APIMM\bin\System.Web.Http.Cors.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\APIMM\bin\System.Web.Http.Cors.xml
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\APIMM\bin\BL.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\APIMM\bin\BL.pdb
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\APIMM\bin\EntityFramework.SqlServer.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\APIMM\bin\EntityFramework.SqlServer.xml

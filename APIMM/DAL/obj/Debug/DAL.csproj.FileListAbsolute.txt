@@ -10,3 +10,15 @@ C:\Users\User\Desktop\Project\FinalProject\APIMM\DAL\obj\Debug\DAL.csproj.CoreCo
 C:\Users\User\Desktop\Project\FinalProject\APIMM\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\User\Desktop\Project\FinalProject\APIMM\DAL\obj\Debug\DAL.dll
 C:\Users\User\Desktop\Project\FinalProject\APIMM\DAL\obj\Debug\DAL.pdb
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DAL\bin\Debug\DAL.dll.config
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DAL\bin\Debug\DAL.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DAL\bin\Debug\DAL.pdb
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DAL\bin\Debug\EntityFramework.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DAL\bin\Debug\EntityFramework.xml
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DAL\obj\Debug\DAL.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DAL\obj\Debug\DAL.pdb

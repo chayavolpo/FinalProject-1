@@ -1,0 +1,15 @@
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\BL\bin\Debug\BL.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\BL\bin\Debug\BL.pdb
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\BL\bin\Debug\DTO.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\BL\bin\Debug\DAL.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\BL\bin\Debug\EntityFramework.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\BL\bin\Debug\DTO.pdb
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\BL\bin\Debug\DTO.dll.config
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\BL\bin\Debug\DAL.pdb
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\BL\bin\Debug\DAL.dll.config
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\BL\bin\Debug\EntityFramework.xml
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\BL\obj\Debug\BL.csprojAssemblyReference.cache
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\BL\obj\Debug\BL.csproj.CopyComplete
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\BL\obj\Debug\BL.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\BL\obj\Debug\BL.pdb

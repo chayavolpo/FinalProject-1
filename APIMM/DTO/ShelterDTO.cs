@@ -8,7 +8,7 @@ namespace DTO
 {
       public class ShelterDTO
     {
-        static DAL.DBMMEntities db = new DAL.DBMMEntities();
+        static DAL.DataBaseMMEntities db = new DAL.DataBaseMMEntities();
         public int ShelterKey { get; set; }
         public double LatShelter { get; set; }
         public double LngShelter { get; set; }

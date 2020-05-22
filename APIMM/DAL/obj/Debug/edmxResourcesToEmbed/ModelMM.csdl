@@ -44,7 +44,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DBMMEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="DataBaseMMEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AmountPeopleInShelters" EntityType="Self.AmountPeopleInShelter" />
     <EntitySet Name="Clerks" EntityType="Self.Clerk" />
     <EntitySet Name="Shelters" EntityType="Self.Shelter" />

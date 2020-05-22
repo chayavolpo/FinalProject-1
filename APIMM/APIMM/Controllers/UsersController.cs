@@ -1,4 +1,5 @@
-﻿using DTO;
+﻿using BL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace APIMM.Controllers
         [Route("login")]
         public ClerkDTO Login(ClerkDTO loginUser)
         {
-            return new ClerkDTO();
+            return ClerkLogic.LoginClerk(loginUser);
         }
 
     }

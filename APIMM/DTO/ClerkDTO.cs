@@ -8,7 +8,7 @@ namespace DTO
 {
     public class ClerkDTO
     {
-        static DAL.DBMMEntities db = new DAL.DBMMEntities();
+        static DAL.DataBaseMMEntities db = new DAL.DataBaseMMEntities();
 
         public int    ClerkKey { get; set; }
         public string ClerkFName { get; set; }

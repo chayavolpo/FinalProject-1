@@ -13,10 +13,10 @@ namespace DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DBMMEntities : DbContext
+    public partial class DataBaseMMEntities : DbContext
     {
-        public DBMMEntities()
-            : base("name=DBMMEntities")
+        public DataBaseMMEntities()
+            : base("name=DataBaseMMEntities")
         {
         }
     

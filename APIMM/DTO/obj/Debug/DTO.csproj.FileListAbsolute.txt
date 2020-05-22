@@ -13,3 +13,18 @@ C:\Users\User\Desktop\Project\FinalProject\APIMM\DTO\obj\Debug\DTO.csproj.CoreCo
 C:\Users\User\Desktop\Project\FinalProject\APIMM\DTO\obj\Debug\DTO.csproj.CopyComplete
 C:\Users\User\Desktop\Project\FinalProject\APIMM\DTO\obj\Debug\DTO.dll
 C:\Users\User\Desktop\Project\FinalProject\APIMM\DTO\obj\Debug\DTO.pdb
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DTO\bin\Debug\DTO.dll.config
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DTO\bin\Debug\DTO.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DTO\bin\Debug\DTO.pdb
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DTO\bin\Debug\DAL.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DTO\bin\Debug\EntityFramework.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DTO\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DTO\bin\Debug\DAL.pdb
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DTO\bin\Debug\DAL.dll.config
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DTO\bin\Debug\EntityFramework.xml
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DTO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DTO\obj\Debug\DTO.csproj.CopyComplete
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DTO\obj\Debug\DTO.dll
+C:\Users\Chaya Volpo\Desktop\Project\FinalProject\APIMM\DTO\obj\Debug\DTO.pdb
