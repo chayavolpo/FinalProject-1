@@ -10,8 +10,14 @@ export class ClerksService {
   basicUrl:string="http://localhost:59355/clerks/"
   constructor(private http:HttpClient) {
   }
-  LoginUser(Clerk:Clerk)
+  loginUser(Clerk:Clerk)
   {
       return this.http.post(this.basicUrl+"login",Clerk)
   }
+ 
+  addClerk(newClerk:Clerk)
+  {
+     return this.http.post(this.basicUrl+"addClerk",newClerk);
+  }
+
 }

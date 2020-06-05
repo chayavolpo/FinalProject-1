@@ -3,13 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './Components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddClerkComponent } from './Components/add-clerk/add-clerk.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    AddClerkComponent
   ],
   imports: [
     BrowserModule,

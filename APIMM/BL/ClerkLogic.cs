@@ -13,5 +13,10 @@ namespace BL
         {
             return DTO.ClerkDTO.ClerkExsits(clerk);
         }
+
+        public static bool AddNewClerk(ClerkDTO newClerk)
+        {
+            return DTO.ClerkDTO.AddNewClerk(newClerk);
+        }
     }
 }

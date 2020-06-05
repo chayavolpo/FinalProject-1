@@ -19,5 +19,13 @@ namespace APIMM.Controllers
             return ClerkLogic.LoginClerk(loginUser);
         }
 
+        [HttpPost]
+        [Route("addClerk")]
+        public bool AddClerk(ClerkDTO newClerk)
+        {
+            return ClerkLogic.AddNewClerk(newClerk);
+        }
+
+
     }
 }

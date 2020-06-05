@@ -1,0 +1,119 @@
+<!-- <div class='brand'>
+  <a href='https://www.jamiecoulter.co.uk' target='_blank'>
+    <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/logo.png'>
+  </a>
+</div>
+<div class='login'>
+  <div class='login_title'>
+    <span>Login to your account</span>
+  </div>
+  <div class='login_fields'>
+    <div class='login_fields__user'>
+      <div class='icon'>
+        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/user_icon_copy.png'>
+      </div>
+      <input placeholder='Username' type='text' [(ngModel)]="Clerk.ClerkFName"/>
+        <div class='validation'>
+          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tick.png'>
+        </div>
+    </div>
+    <div class='login_fields__password'>
+      <div class='icon'>
+        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/lock_icon_copy.png'>
+      </div>
+      <input placeholder='Password' type='password' [(ngModel)]="Clerk.ClerkPassword">
+      <div class='validation'>
+        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tick.png'>
+      </div>
+    </div>
+    <div class='login_fields__submit'>
+      <input type='button' value='Log In' (click)="login()" />
+      <input type='button' value='Add Clerk' *ngIf="Clerk.IfManager" routerLink="register" routerLinkActive="active-link"/>
+      <div class='forgot'>
+        <a href='#'>Forgotten password?</a>
+      </div>
+    </div>
+  </div>
+</div>  -->
+
+
+
+
+<!-- 
+<div class="form">
+      
+  <ul class="tab-group">
+    <li class="tab active"><a href="#signup">Sign Up</a></li>
+    <li class="tab"><a href="#login">Log In</a></li>
+  </ul> 
+    
+  <div class="tab-content">
+    <div id="signup">   
+      <h1>Log In</h1>
+      
+      
+     
+      <div class="top-row">
+        <div class="field-wrap">
+          <label>
+            First Name<span class="req">*</span>
+          </label>
+          <input type="text" required autocomplete="off" [(ngModel)]="Clerk.ClerkFName"/>
+        </div>
+    
+        <div class="field-wrap">
+          <label>
+            Last Name<span class="req">*</span>
+          </label>
+          <input type="text"required autocomplete="off" [(ngModel)]="Clerk.ClerkLName"/>
+        </div>
+      </div>
+      
+      <div class="field-wrap">
+        <label>
+          Set A Password<span class="req">*</span>
+        </label>
+        <input type="password"required autocomplete="off" [(ngModel)]="Clerk.ClerkPassword"/>
+      </div>
+      <input type='button' value='Log In' (click)="login()" class="button button-block" />
+      <input type='button' value='Add Clerk' *ngIf="Clerk.IfManager" routerLink="addClerk" routerLinkActive="active-link" class="button button-block"/>
+    </div>
+      
+  </div> 
+   
+</div>  -->
+
+
+<div class="form">
+  <div class="tab-content">
+    <div id="signup">
+      <h1>מרחב מ(א)ו(ר)גן</h1>
+
+      <!-- <form action="/" method="post"> -->
+
+      <div class="top-row">
+        <div class="field-wrap">
+          <label>
+            User Name<span class="req">*</span>
+          </label>
+          <input type="text" required autocomplete="off" [(ngModel)]="Clerk.ClerkFName" />
+        </div>
+      </div>
+
+      <div class="field-wrap">
+        <label>
+          Password<span class="req">*</span>
+        </label>
+        <input type="password" required autocomplete="off" [(ngModel)]="Clerk.ClerkPassword" />
+      </div>
+
+      <button type="submit" class="button button-block" (click)="login()">הכנס</button>
+      <button class="button button-block" *ngIf="Clerk.IfManager" routerLink="register" routerLinkActive="active-link">הוספת משתמש</button>
+    </div>
+
+    <div id="login">
+
+    </div>
+  </div><!-- tab-content -->
+
+</div> <!-- /form -->
