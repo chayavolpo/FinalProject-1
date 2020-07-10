@@ -1,9 +1,25 @@
 <ol>
     <li>
-      <!-- <mat-form-field> -->
-        <!-- <mat-label>What's your name?</mat-label> -->
+      <mat-form-field> 
+         <mat-label>What's your name?</mat-label> 
         <input matInput [(ngModel)]="name">
-      <!-- </mat-form-field> -->
+      </mat-form-field> 
+    </li>
+    <li>
+      <button mat-raised-button  matInput (click)="openDialog()">Pick one</button>
+    </li>
+    <li *ngIf="animal">
+      You chose: <i>{{animal}}</i>
+    </li>
+  </ol>
+
+
+  <!-- <ol>
+    <li>
+      <mat-form-field>
+        <mat-label>What's your name?</mat-label>
+        <input matInput [(ngModel)]="name">
+      </mat-form-field>
     </li>
     <li>
       <button mat-raised-button (click)="openDialog()">Pick one</button>
@@ -11,4 +27,4 @@
     <li *ngIf="animal">
       You chose: <i>{{animal}}</i>
     </li>
-  </ol>
+  </ol> -->

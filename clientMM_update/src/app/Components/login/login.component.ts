@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ClerksService } from '../../Services/clerks.service';
 import { Clerk } from '../../Models/clerks.model';
 import { Router } from '@angular/router';
+// import $ = require("jquery");
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +13,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   Clerk: Clerk = new Clerk()
+  ifKeyDown:boolean=false;
   constructor(private clerksService: ClerksService,private router:Router) { }
 
   login() {
@@ -37,6 +40,18 @@ export class LoginComponent implements OnInit {
   openAddShelter()
   {
      this.router.navigate(["shelters/addShelter"]);
+  }
+  keyDown():void{
+    this.ifKeyDown=true;
+    console.log(this.ifKeyDown);
+  }
+  keyUp():void
+  {
+    if(this.Clerk.ClerkFName=='')
+        this.ifKeyDown=false;
+    else
+        this.ifKeyDown=true;     
+    console.log(this.ifKeyDown);
   }
   ngOnInit(): void {
   }

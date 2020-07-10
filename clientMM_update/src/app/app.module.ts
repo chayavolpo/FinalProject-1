@@ -8,8 +8,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddClerkComponent } from './Components/add-clerk/add-clerk.component';
 import { AddShelterComponent } from './Components/add-shelter/add-shelter.component';
 import { UpdateShelterComponent } from './Components/update-shelter/update-shelter.component';
-import { ViewShelterComponent } from './Components/view-shelter/view-shelter.component';
-import {MatDialogModule, MatFormFieldModule} from '@angular/material';
+// import { ViewShelterComponent, } from './Components/view-shelter/view-shelter.component';
+import {MatDialogModule, MatFormFieldModule,MatInputModule } from '@angular/material';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogOverviewExample ,DialogOverviewExampleDialog} from './Components/example/dialog-overview-example';
+
 
 
 @NgModule({
@@ -19,18 +22,27 @@ import {MatDialogModule, MatFormFieldModule} from '@angular/material';
     AddClerkComponent,
     AddShelterComponent,
     UpdateShelterComponent,
-    ViewShelterComponent
+    // ViewShelterComponent,
+    DialogOverviewExampleDialog,
+    DialogOverviewExample
+   
   ],
   imports: [
     MatFormFieldModule,
+    MatInputModule ,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-   MatDialogModule,
+    MatDialogModule,
     HttpClientModule,
+    NoopAnimationsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
     
-    ReactiveFormsModule
   ],
+  // entryComponents: [
+  //   ViewShelterComponent
+  // ],
   providers: [],
   bootstrap: [AppComponent]
 })

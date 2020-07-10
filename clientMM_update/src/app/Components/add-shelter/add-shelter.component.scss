@@ -93,12 +93,13 @@ h1 {
 label {
   position: absolute;
   transform: translateY(6px);
-  left: 13px;
+  right:10px;
   color: rgba($white, 0.5);
   // transition: all 0.25s ease;
 //   -webkit-backface-visibility: hidden;
   pointer-events: none;
   font-size: 22px;
+  direction:rtl;
   .req {
     margin: 2px;
     color: $main;
@@ -145,6 +146,7 @@ textarea {
 .field-wrap {
   position: relative;
   margin-bottom: 40px;
+  direction:rtl;
 }
 
 .top-row {

@@ -1,7 +1,48 @@
 <!-- <p>add-clerk works!</p> -->
 
-<input type="text" placeholder="Clerk first name" [(ngModel)]="Clerk.ClerkFName"/>
+<!-- <input type="text" placeholder="Clerk first name" [(ngModel)]="Clerk.ClerkFName"/>
 <input type="text" placeholder="Clerk last name" [(ngModel)]="Clerk.ClerkLName"/>
 <input type="text" placeholder="Clerk password" [(ngModel)]="Clerk.ClerkPassword"/>
-<input type="text" placeholder="if manager" [(ngModel)]="Clerk.IfManager"/>
-<input type="button" value="Add" (click)="addClerck()"/>
+<input type="button" value="Add" (click)="addClerck()"/> -->
+
+
+<div class="form">
+    <div class="tab-content">
+      <div id="signup">
+        <h1>הוספת משתמש</h1>
+  
+        <!-- <form action="/" method="post"> -->
+  
+      
+          <div class="field-wrap">
+            <label>
+              שם פרטי<span class="req">*</span>
+            </label>
+            <input type="text" required autocomplete="off" [(ngModel)]="Clerk.ClerkFName" />
+          </div>
+        
+
+        
+            <div class="field-wrap">
+              <label>
+                שם משפחה<span class="req">*</span>
+              </label>
+              <input type="text" required autocomplete="off" [(ngModel)]="Clerk.ClerkLName" />
+            </div>
+        
+  
+        <div class="field-wrap">
+          <label>
+           סיסמא<span class="req">*</span>
+          </label>
+          <input  required autocomplete="off" [(ngModel)]="Clerk.ClerkPassword" />
+        </div>
+
+  
+        <button type="submit" class="button button-block" (click)="addClerck()">הוסף</button>
+      </div>
+  
+      <div id="login">
+  
+      </div>
+    </div><!-- tab-content -->
