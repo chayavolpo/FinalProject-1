@@ -4,6 +4,7 @@ import { Clerk } from '../../Models/clerks.model';
 import { Router } from '@angular/router';
 // import $ = require("jquery");
 import * as $ from 'jquery';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   Clerk: Clerk = new Clerk()
   ifKeyDown:boolean=false;
-  constructor(private clerksService: ClerksService,private router:Router) { }
+  loginForm:FormGroup;
+  constructor(private fb:FormBuilder,private clerksService: ClerksService,private router:Router) { }
 
   login() {
     this.clerksService.loginUser(this.Clerk).subscribe((res: Clerk) => {
@@ -54,6 +56,12 @@ export class LoginComponent implements OnInit {
     console.log(this.ifKeyDown);
   }
   ngOnInit(): void {
+
+    this.loginForm = this.fb.group({
+      userName:["",Validators.required],
+      userPassword:["",Validators.required]
+    });
+
   }
 
 }

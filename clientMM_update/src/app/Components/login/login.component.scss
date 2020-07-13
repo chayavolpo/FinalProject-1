@@ -21,6 +21,7 @@ $br: 4px;
   box-sizing: border-box;
 }
 
+
 html {
   overflow-y: scroll;
 }
@@ -123,21 +124,51 @@ label.highlight {
 
 input,
 textarea {
-  font-size: 22px;
-  display: block;
-  width: 100%;
-  height: 100%;
-  padding: 5px 10px;
-  background: none;
-  background-image: none;
-  border: 1px solid $gray-light;
-  color: $white;
-  border-radius: 0;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-  &:focus {
-    outline: 0;
-    border-color: $main;
+  // font-size: 22px;
+  // display: block;
+  // width: 100%;
+  // height: 100%;
+  // padding: 5px 10px;
+  // background: none;
+  // background-image: none;
+  // // border: 1px solid $gray-light;
+  // // color: $white;
+  // border-radius: 0;
+  // transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  // &:focus {
+  //   outline: 0;
+  //   border-color: $main;
+  // }
+}
+
+mat-label {
+  color:#1ab188;
+  direction: rtl;
+  text-align: right;
+}
+
+mat-input{
+  background-color: transparent;
+
+}
+mat-form-field{
+  color: #1ab188;
+  outline-color: #1ab188;
+  border-color: #1ab188;
+}
+
+::ng-deep {
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+     color: #1ab188;
   }
+  mat-form-field {
+     .mat-hint, .mat-form-field-label {
+        color: #1ab188;
+     }
+  }
+}
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color:#1ab188;
 }
 
 textarea {

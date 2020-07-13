@@ -9,9 +9,10 @@ import { AddClerkComponent } from './Components/add-clerk/add-clerk.component';
 import { AddShelterComponent } from './Components/add-shelter/add-shelter.component';
 import { UpdateShelterComponent } from './Components/update-shelter/update-shelter.component';
 // import { ViewShelterComponent, } from './Components/view-shelter/view-shelter.component';
-import {MatDialogModule, MatFormFieldModule,MatInputModule } from '@angular/material';
+import {MatDialogModule, MatFormFieldModule,MatInputModule, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogOverviewExample ,DialogOverviewExampleDialog} from './Components/example/dialog-overview-example';
+
 
 
 
@@ -33,16 +34,19 @@ import { DialogOverviewExample ,DialogOverviewExampleDialog} from './Components/
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    MatDialogModule,
     HttpClientModule,
     NoopAnimationsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule,
+    ReactiveFormsModule
+    
     
   ],
-  // entryComponents: [
-  //   ViewShelterComponent
-  // ],
+  exports: [MatDialogModule],
+  entryComponents: [
+    DialogOverviewExample
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
