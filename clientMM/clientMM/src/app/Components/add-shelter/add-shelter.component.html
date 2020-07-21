@@ -1,0 +1,52 @@
+<div class="form">
+    <div class="tab-content">
+      <div id="signup">
+        <h1>הוספת מקלט</h1>
+        <p-messages [(value)]="msgs"></p-messages>
+        <form [formGroup]="addShelterForm" (ngSubmit)="addShelter()">
+  
+      
+          <div class="field-wrap">
+            <label>
+              קו אורך<span class="req">*</span>
+            </label>
+            <input type="text" required autocomplete="off" [(ngModel)]="Shelter.LatShelter" autocomplete="off" formControlName="latShelter"/>
+            <span style="color: white;" *ngIf="!addShelterForm.controls.latShelter.valid && addShelterForm.controls.latShelter.dirty">שדה חובה</span>
+          </div>
+        
+
+        
+            <div class="field-wrap">
+              <label>
+                קו רוחב<span class="req">*</span>
+              </label>
+              <input type="text"  autocomplete="off" [(ngModel)]="Shelter.LngShelter" autocomplete="off" formControlName="lngShelter"/>
+              <span style="color: white;" *ngIf="!addShelterForm.controls.lngShelter.valid && addShelterForm.controls.lngShelter.dirty">שדה חובה</span>
+            </div>
+        
+  
+        <div class="field-wrap">
+          <label>
+            כמות מקסימלית של אנשים<span class="req">*</span>
+          </label>
+          <input type="number"  autocomplete="off" [(ngModel)]="Shelter.MaxPeople" formControlName="maxPeople"/>
+          <span style="color: white;" *ngIf="!addShelterForm.controls.maxPeople.valid && addShelterForm.controls.maxPeople.dirty">שדה חובה</span>
+        </div>
+
+        <div class="field-wrap">
+            <label>
+              תאור<span class="req">*</span>
+            </label>
+            <input  autocomplete="off" [(ngModel)]="Shelter.ShelterDescription" formControlName="description"/>
+            <span style="color: white;" *ngIf="!addShelterForm.controls.description.valid && addShelterForm.controls.description.dirty">תאור לא חוקי</span>
+          </div> 
+  
+        <button  pButton type="submit" class="button button-block ui-button-success" >הוסף מקלט</button>
+        </form>
+      </div>
+  
+      <div id="login">
+  
+      </div>
+    </div><!-- tab-content -->
+
