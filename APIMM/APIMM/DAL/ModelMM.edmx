@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DataBaseMMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AmountPeopleInShelter">
+          <Key>
+            <PropertyRef Name="AmountpplKey" />
+          </Key>
+          <Property Name="AmountpplKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShelterKey" Type="int" Nullable="false" />
+          <Property Name="AmountPPLSpeDH" Type="int" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Time" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Clerks">
+          <Key>
+            <PropertyRef Name="ClerkKey" />
+          </Key>
+          <Property Name="ClerkKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClerkFName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ClerkLName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ClerkPassword" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="IfManager" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shelters">
+          <Key>
+            <PropertyRef Name="ShelterKey" />
+          </Key>
+          <Property Name="ShelterKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LatShelter" Type="float" Nullable="false" />
+          <Property Name="LngShelter" Type="float" Nullable="false" />
+          <Property Name="MaxPeople" Type="int" />
+          <Property Name="ShelterDescription" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_AmountPeopleInShelter_Shelters">
+          <End Role="Shelters" Type="Self.Shelters" Multiplicity="1" />
+          <End Role="AmountPeopleInShelter" Type="Self.AmountPeopleInShelter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shelters">
+              <PropertyRef Name="ShelterKey" />
+            </Principal>
+            <Dependent Role="AmountPeopleInShelter">
+              <PropertyRef Name="ShelterKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DataBaseMMModelStoreContainer">
+          <EntitySet Name="AmountPeopleInShelter" EntityType="Self.AmountPeopleInShelter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clerks" EntityType="Self.Clerks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shelters" EntityType="Self.Shelters" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AmountPeopleInShelter_Shelters" Association="Self.FK_AmountPeopleInShelter_Shelters">
+            <End Role="Shelters" EntitySet="Shelters" />
+            <End Role="AmountPeopleInShelter" EntitySet="AmountPeopleInShelter" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataBaseMMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AmountPeopleInShelter">
+          <Key>
+            <PropertyRef Name="AmountpplKey" />
+          </Key>
+          <Property Name="AmountpplKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShelterKey" Type="Int32" Nullable="false" />
+          <Property Name="AmountPPLSpeDH" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Time" Type="Time" Precision="7" />
+          <NavigationProperty Name="Shelter" Relationship="Self.FK_AmountPeopleInShelter_Shelters" FromRole="AmountPeopleInShelter" ToRole="Shelters" />
+        </EntityType>
+        <EntityType Name="Clerk">
+          <Key>
+            <PropertyRef Name="ClerkKey" />
+          </Key>
+          <Property Name="ClerkKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClerkFName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClerkLName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClerkPassword" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IfManager" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shelter">
+          <Key>
+            <PropertyRef Name="ShelterKey" />
+          </Key>
+          <Property Name="ShelterKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LatShelter" Type="Double" Nullable="false" />
+          <Property Name="LngShelter" Type="Double" Nullable="false" />
+          <Property Name="MaxPeople" Type="Int32" />
+          <Property Name="ShelterDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AmountPeopleInShelters" Relationship="Self.FK_AmountPeopleInShelter_Shelters" FromRole="Shelters" ToRole="AmountPeopleInShelter" />
+        </EntityType>
+        <Association Name="FK_AmountPeopleInShelter_Shelters">
+          <End Role="Shelters" Type="Self.Shelter" Multiplicity="1" />
+          <End Role="AmountPeopleInShelter" Type="Self.AmountPeopleInShelter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shelters">
+              <PropertyRef Name="ShelterKey" />
+            </Principal>
+            <Dependent Role="AmountPeopleInShelter">
+              <PropertyRef Name="ShelterKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DataBaseMMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AmountPeopleInShelters" EntityType="Self.AmountPeopleInShelter" />
+          <EntitySet Name="Clerks" EntityType="Self.Clerk" />
+          <EntitySet Name="Shelters" EntityType="Self.Shelter" />
+          <AssociationSet Name="FK_AmountPeopleInShelter_Shelters" Association="Self.FK_AmountPeopleInShelter_Shelters">
+            <End Role="Shelters" EntitySet="Shelters" />
+            <End Role="AmountPeopleInShelter" EntitySet="AmountPeopleInShelters" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DataBaseMMModelStoreContainer" CdmEntityContainer="DataBaseMMEntities">
+          <EntitySetMapping Name="AmountPeopleInShelters">
+            <EntityTypeMapping TypeName="DataBaseMMModel.AmountPeopleInShelter">
+              <MappingFragment StoreEntitySet="AmountPeopleInShelter">
+                <ScalarProperty Name="AmountpplKey" ColumnName="AmountpplKey" />
+                <ScalarProperty Name="ShelterKey" ColumnName="ShelterKey" />
+                <ScalarProperty Name="AmountPPLSpeDH" ColumnName="AmountPPLSpeDH" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clerks">
+            <EntityTypeMapping TypeName="DataBaseMMModel.Clerk">
+              <MappingFragment StoreEntitySet="Clerks">
+                <ScalarProperty Name="ClerkKey" ColumnName="ClerkKey" />
+                <ScalarProperty Name="ClerkFName" ColumnName="ClerkFName" />
+                <ScalarProperty Name="ClerkLName" ColumnName="ClerkLName" />
+                <ScalarProperty Name="ClerkPassword" ColumnName="ClerkPassword" />
+                <ScalarProperty Name="IfManager" ColumnName="IfManager" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shelters">
+            <EntityTypeMapping TypeName="DataBaseMMModel.Shelter">
+              <MappingFragment StoreEntitySet="Shelters">
+                <ScalarProperty Name="ShelterKey" ColumnName="ShelterKey" />
+                <ScalarProperty Name="LatShelter" ColumnName="LatShelter" />
+                <ScalarProperty Name="LngShelter" ColumnName="LngShelter" />
+                <ScalarProperty Name="MaxPeople" ColumnName="MaxPeople" />
+                <ScalarProperty Name="ShelterDescription" ColumnName="ShelterDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

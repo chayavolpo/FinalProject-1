@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataBaseMMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AmountPeopleInShelter">
+    <Key>
+      <PropertyRef Name="AmountpplKey" />
+    </Key>
+    <Property Name="AmountpplKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShelterKey" Type="int" Nullable="false" />
+    <Property Name="AmountPPLSpeDH" Type="int" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Time" Type="time" Precision="7" />
+  </EntityType>
+  <EntityType Name="Clerks">
+    <Key>
+      <PropertyRef Name="ClerkKey" />
+    </Key>
+    <Property Name="ClerkKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClerkFName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ClerkLName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ClerkPassword" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="IfManager" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Shelters">
+    <Key>
+      <PropertyRef Name="ShelterKey" />
+    </Key>
+    <Property Name="ShelterKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LatShelter" Type="float" Nullable="false" />
+    <Property Name="LngShelter" Type="float" Nullable="false" />
+    <Property Name="MaxPeople" Type="int" />
+    <Property Name="ShelterDescription" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_AmountPeopleInShelter_Shelters">
+    <End Role="Shelters" Type="Self.Shelters" Multiplicity="1" />
+    <End Role="AmountPeopleInShelter" Type="Self.AmountPeopleInShelter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shelters">
+        <PropertyRef Name="ShelterKey" />
+      </Principal>
+      <Dependent Role="AmountPeopleInShelter">
+        <PropertyRef Name="ShelterKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DataBaseMMModelStoreContainer">
+    <EntitySet Name="AmountPeopleInShelter" EntityType="Self.AmountPeopleInShelter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clerks" EntityType="Self.Clerks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shelters" EntityType="Self.Shelters" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AmountPeopleInShelter_Shelters" Association="Self.FK_AmountPeopleInShelter_Shelters">
+      <End Role="Shelters" EntitySet="Shelters" />
+      <End Role="AmountPeopleInShelter" EntitySet="AmountPeopleInShelter" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
