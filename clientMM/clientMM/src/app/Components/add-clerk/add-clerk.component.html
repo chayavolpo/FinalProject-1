@@ -1,54 +1,41 @@
-<!-- <p>add-clerk works!</p> -->
-
-<!-- <input type="text" placeholder="Clerk first name" [(ngModel)]="Clerk.ClerkFName"/>
-<input type="text" placeholder="Clerk last name" [(ngModel)]="Clerk.ClerkLName"/>
-<input type="text" placeholder="Clerk password" [(ngModel)]="Clerk.ClerkPassword"/>
-<input type="button" value="Add" (click)="addClerck()"/> -->
-
 
 <div class="form">
     <div class="tab-content">
+      <div class="homeIcon" pTooltip="חזרה לדף הראשי" tooltipPosition="bottom" (click)="backToHomePage()">
+        <i class="pi pi-home"></i>
+       </div>
       <div id="signup">
         <h1>הוספת משתמש</h1>
         <p-messages [(value)]="msgs"></p-messages>
         <form [formGroup]="addClerkForm" (ngSubmit)="addClerck()">
-  
-      
+
+        
           <div class="field-wrap">
-            <label>
-              שם פרטי<span class="req">*</span>
-            </label>
-            <input type="text" required autocomplete="off" [(ngModel)]="Clerk.ClerkFName" formControlName="userFirstName" />
-            <span style="color: white;" *ngIf="!addClerkForm.controls.userFirstName.valid && addClerkForm.controls.userFirstName.dirty">שם  פרטי לא חוקי</span>
-           <!-- <p-message severity="error" text="Firstname is required" *ngIf="!addClerkForm.controls['userFirstName'].valid && addClerkForm.controls['userFirstName'].dirty"></p-message>  -->
-          </div>
-        
+            <span class="ui-float-label">
+              <input id="float-input" type="text" size="30" pInputText autocomplete="off" formControlName="userFirstName" [(ngModel)]="Clerk.ClerkFName"> 
+              <label for="float-input">שם פרטי*</label>
+            </span>
+          </div> 
 
-        
-            <div class="field-wrap">
-              <label>
-                שם משפחה<span class="req">*</span>
-              </label>
-              <input type="text" required autocomplete="off" [(ngModel)]="Clerk.ClerkLName" formControlName="userLastName"/>
-              <span style="color: white;" *ngIf="!addClerkForm.controls.userLastName.valid && addClerkForm.controls.userLastName.dirty">שם משפחה לא חוקי</span>
-            </div>
-        
-  
+          <div class="field-wrap">
+            <span class="ui-float-label">
+                <input id="float-input" type="text" size="30" pInputText autocomplete="off" formControlName="userLastName" [(ngModel)]="Clerk.ClerkLName"> 
+                <label for="float-input">שם משפחה*</label>
+            </span>
+          </div>    
+
         <div class="field-wrap">
-          <label>
-           סיסמא<span class="req">*</span>
-          </label>
-          <input   autocomplete="off" [(ngModel)]="Clerk.ClerkPassword" formControlName="userPassword" name="userPassword"/>
-          <span style="color: white;" *ngIf="!addClerkForm.controls.userPassword.valid && addClerkForm.controls.userPassword.dirty"> סיסמא לא חוקית</span>
-          <!-- <span style="color: white;" *ngIf="addClerkForm.controls.userPassword.$errors.pattern && addClerkForm.controls.userPassword.dirty">נדרש לפחות 8 תווים אותיות ומספרים</span> -->
-        </div>
-
-
-  
+          <span class="ui-float-label">
+            <input id="float-input" type="text" size="30" pInputText autocomplete="off" formControlName="userPassword" [(ngModel)]="Clerk.ClerkPassword"> 
+            <label for="float-input">סיסמא*</label>
+          </span>
+        </div> 
+ 
         <button pButton type="submit" class="button button-block ui-button-success"  >הוסף</button>
+        
         <!-- <button type="button" pButton (click)="clear()" icon="pi pi-times" style="float:right" label="Clear"></button> -->
       </form>
-
+    
       </div>
   
       <div id="login">

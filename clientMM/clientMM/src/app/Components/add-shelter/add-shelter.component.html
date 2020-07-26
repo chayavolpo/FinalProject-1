@@ -1,45 +1,42 @@
 <div class="form">
     <div class="tab-content">
+      <div class="homeIcon" pTooltip="חזרה לדף הראשי" tooltipPosition="bottom" (click)="backToHomePage()">
+        <i class="pi pi-home"></i>
+       </div>
       <div id="signup">
         <h1>הוספת מקלט</h1>
         <p-messages [(value)]="msgs"></p-messages>
         <form [formGroup]="addShelterForm" (ngSubmit)="addShelter()">
   
       
+        
           <div class="field-wrap">
-            <label>
-              קו אורך<span class="req">*</span>
-            </label>
-            <input type="text" required autocomplete="off" [(ngModel)]="Shelter.LatShelter" autocomplete="off" formControlName="latShelter"/>
-            <span style="color: white;" *ngIf="!addShelterForm.controls.latShelter.valid && addShelterForm.controls.latShelter.dirty">שדה חובה</span>
-          </div>
-        
+            <span class="ui-float-label">
+              <input id="float-input" type="text" size="30" pInputText autocomplete="off" formControlName="latShelter" [(ngModel)]="Shelter.LatShelter"> 
+              <label for="float-input">קו אורך*</label>
+            </span>
+          </div> 
 
-        
-            <div class="field-wrap">
-              <label>
-                קו רוחב<span class="req">*</span>
-              </label>
-              <input type="text"  autocomplete="off" [(ngModel)]="Shelter.LngShelter" autocomplete="off" formControlName="lngShelter"/>
-              <span style="color: white;" *ngIf="!addShelterForm.controls.lngShelter.valid && addShelterForm.controls.lngShelter.dirty">שדה חובה</span>
-            </div>
-        
-  
+          <div class="field-wrap">
+            <span class="ui-float-label">
+               <input id="float-input" type="text" size="30" pInputText autocomplete="off" formControlName="lngShelter" [(ngModel)]="Shelter.LngShelter"> 
+               <label for="float-input">קו רוחב*</label>
+             </span>
+          </div>
+
         <div class="field-wrap">
-          <label>
-            כמות מקסימלית של אנשים<span class="req">*</span>
-          </label>
-          <input type="number"  autocomplete="off" [(ngModel)]="Shelter.MaxPeople" formControlName="maxPeople"/>
-          <span style="color: white;" *ngIf="!addShelterForm.controls.maxPeople.valid && addShelterForm.controls.maxPeople.dirty">שדה חובה</span>
+          <span class="ui-float-label">
+             <input id="float-input" type="text" size="30" pInputText autocomplete="off" formControlName="maxPeople" [(ngModel)]="Shelter.MaxPeople"> 
+             <label for="float-input">כמות מקסימלית של אנשים*</label>
+           </span>
         </div>
 
-        <div class="field-wrap">
-            <label>
-              תאור<span class="req">*</span>
-            </label>
-            <input  autocomplete="off" [(ngModel)]="Shelter.ShelterDescription" formControlName="description"/>
-            <span style="color: white;" *ngIf="!addShelterForm.controls.description.valid && addShelterForm.controls.description.dirty">תאור לא חוקי</span>
-          </div> 
+       <div class="field-wrap">
+          <span class="ui-float-label">
+              <input id="float-input" type="text" size="30" pInputText autocomplete="off" formControlName="description" [(ngModel)]="Shelter.ShelterDescription"> 
+              <label for="float-input">תאור*</label>
+          </span>
+      </div>  
   
         <button  pButton type="submit" class="button button-block ui-button-success" >הוסף מקלט</button>
         </form>

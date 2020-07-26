@@ -3,35 +3,28 @@
     <div class="tab-content">
       <div id="signup">
         <h1>מרחב מ(א)ו(ר)גן</h1>
-  
+        <p-messages [(value)]="msgs"></p-messages>
         <form  [formGroup] = "loginForm" (ngSubmit)="login()" >
   
     
-          <div class="field-wrap">
-            <!-- <label >
-              שם משתמש<span class="req">*</span>
-            </label>
-            <input type="text" required autocomplete="off" formControlName="userName" [(ngModel)]="Clerk.ClerkFName"  />  -->
+          <div class="field-wrap" *ngIf="!ifClerkLogin">
             <span class="ui-float-label">
-              <input id="float-input" type="text" size="30" pInputText> 
-              <label for="float-input">שם משתמש</label>
+              <input id="float-input" type="text" size="30" pInputText autocomplete="off" formControlName="userName" [(ngModel)]="Clerk.ClerkFName"> 
+              <label for="float-input">שם משתמש*</label>
             </span>
-          
-          <!-- <mat-form-field appearance="outline" hideRequiredMarker >
-            <mat-label>שם משתמש</mat-label>
-            <input matInput  required autocomplete="off" formControlName="userName" [(ngModel)]="Clerk.ClerkFName" (keydown)="keyDown()" (keyup)="keyUp()" >
-          </mat-form-field> -->
-        </div> 
+          </div> 
   
-        <div class="field-wrap">
-          <label>
-            סיסמא<span class="req">*</span>
-          </label>
-          <input type="password" required autocomplete="off"  formControlName="userPassword" [(ngModel)]="Clerk.ClerkPassword" />
+        <div class="field-wrap" *ngIf="!ifClerkLogin">
+          <span class="ui-float-label">
+            <input id="float-input" type="text" size="30" pInputText autocomplete="off" formControlName="userPassword" [(ngModel)]="Clerk.ClerkPassword"> 
+            <label for="float-input">סיסמא*</label>
+          </span>
         </div>
+          
+        <div *ngIf="ifClerkLogin">שלום {{Clerk.ClerkFName}}</div>
+
   
-  
-        <button type="submit" class="button button-block">הכנס</button>
+        <button type="submit" class="button button-block" *ngIf="!ifClerkLogin" >הכנס</button>
         <button class="button button-block" *ngIf="Clerk.IfManager" routerLink="register" routerLinkActive="active-link">הוספת משתמש</button>
         <button class="button button-block" *ngIf="ifClerkExists()" (click)="openAddShelter()">הוספת מקלט</button>
   
@@ -42,7 +35,7 @@
       <div id="login">
       </div>
   
-    </div><!-- tab-content -->
+    </div>
   
-  </div> <!-- /form -->
+  </div>
   

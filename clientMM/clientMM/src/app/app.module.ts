@@ -11,6 +11,8 @@ import {InputTextModule} from 'primeng/inputtext';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GoogleMapsModule } from '@angular/google-maps';
+import {TooltipModule} from 'primeng/tooltip';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InputTextModule,
     MessagesModule,
     MessageModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    GoogleMapsModule,
+    TooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent],

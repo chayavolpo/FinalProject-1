@@ -36,7 +36,7 @@ namespace DTO
 
         public static ClerkDTO ClerkExsits(ClerkDTO clerk)
         {
-            return new ClerkDTO(db.Clerks.FirstOrDefault(p => p.ClerkPassword == clerk.ClerkPassword));
+            return new ClerkDTO(db.Clerks.FirstOrDefault(p => p.ClerkPassword == clerk.ClerkPassword && p.ClerkFName==clerk.ClerkFName));
         }
 
         public static DAL.Clerk DtoToDAL(ClerkDTO clerkDTO)

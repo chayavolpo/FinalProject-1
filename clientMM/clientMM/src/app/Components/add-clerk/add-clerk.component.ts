@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Clerk } from 'src/app/Models/clerks.model';
 import { ClerksService } from 'src/app/Services/clerks.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {Message} from 'primeng/api';
-import {MessageService} from 'primeng/api';
+import { Message } from 'primeng/api';
+import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 // import {SelectItem} from 'primeng/api';
 
 
@@ -12,50 +13,59 @@ import {MessageService} from 'primeng/api';
   selector: 'app-add-clerk',
   templateUrl: './add-clerk.component.html',
   styleUrls: ['./add-clerk.component.scss',
-],
+  ],
   providers: [MessageService]
 
 })
 export class AddClerkComponent implements OnInit {
-  Clerk:Clerk=new Clerk();
-  addClerkForm:FormGroup;
-  pattern:string;
+  Clerk: Clerk = new Clerk();
+  addClerkForm: FormGroup;
+  pattern: string;
 
   msgs: Message[] = [];
-  
-  constructor(private fb:FormBuilder,private clerksService: ClerksService) { 
+
+  constructor(private fb: FormBuilder, private clerksService: ClerksService, private router: Router) {
     // this.pattern= "(?=.*[0-9])"
     // + "(?=.*[a-z])(?=.*[A-Z])"
     // + "(?=.*[@#$%^&+=])"
     // + "(?=\\S+$).{8,20}$";
   }
 
-  addClerck(){
-         this.clerksService.addClerk(this.Clerk).subscribe(res=>{
-          
-            console.log(res);
-            this.msgs = [];
-            this.msgs.push({severity:'success', summary:'Success  ', detail:'המשתמש התווסף בהצלחה'});
-            // alert("המשתמש התווסף בהצלחה");
+  addClerck() {
+    if(this.addClerkForm.valid){
+    this.clerksService.addClerk(this.Clerk).subscribe(res => {
 
-         },err=>{
-          console.log(err.error.Message);
-          this.msgs = [];
-          this.msgs.push({severity:'error', summary:'Error  ', detail:err.error.Message});
-          // alert(err.error.Message);
-         });
+      console.log(res);
+      this.msgs = [];
+      this.msgs.push({ severity: 'success', summary: 'Success  ', detail: 'המשתמש התווסף בהצלחה' });
+
+      // alert("המשתמש התווסף בהצלחה");
+
+    }, err => {
+      console.log(err.error.Message);
+      this.msgs = [];
+      this.msgs.push({ severity: 'error', summary: 'Error  ', detail: err.error.Message });
+      // alert(err.error.Message);
+    });
   }
+  else{
+    this.msgs = [];
+    this.msgs.push({severity:'error', summary:'Error  ', detail:"עליך למלא את כל השדות"});
+  }
+}
   clear() {
     this.msgs = [];
   }
-
+  backToHomePage() {
+    this.router.navigate(["login"]);
+  }
   ngOnInit(): void {
 
     this.addClerkForm = this.fb.group({
-       
-      userFirstName:["",[Validators.required,Validators.minLength(2),Validators.maxLength(20)]],
-      userLastName:["",[Validators.required,Validators.minLength(2),Validators.maxLength(20)]],
-      userPassword:["",[Validators.required,Validators.pattern("['a-zA-z']*.{8,}")]]
+
+      userFirstName: ["", [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
+      userLastName: ["", [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
+      userPassword: ["", [Validators.required, Validators.pattern("['a-zA-z']*.{8,}")]]
 
     });
 
