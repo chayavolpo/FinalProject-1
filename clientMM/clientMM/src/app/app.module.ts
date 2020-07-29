@@ -13,6 +13,7 @@ import {MessageModule} from 'primeng/message';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GoogleMapsModule } from '@angular/google-maps';
 import {TooltipModule} from 'primeng/tooltip';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {TooltipModule} from 'primeng/tooltip';
     AppComponent,
     LoginComponent,
     AddShelterComponent,
-    AddClerkComponent
+    AddClerkComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

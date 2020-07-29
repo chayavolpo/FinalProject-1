@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ChangeDetectorRef } from '@angular/core';
 import { ClerksService } from '../../Services/clerks.service';
 import { Clerk } from '../../Models/clerks.model';
 import { Router } from '@angular/router';
@@ -9,7 +9,8 @@ import {MessageService} from 'primeng/api';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  providers: [MessageService]
 })
 export class LoginComponent implements OnInit {
 
@@ -19,8 +20,12 @@ export class LoginComponent implements OnInit {
   ifClerkLogin:boolean=false;
   msgs: Message[] = [];
 
-  constructor(private fb:FormBuilder,private clerksService: ClerksService,private router:Router) {
+  constructor(private fb:FormBuilder,private clerksService: ClerksService,private router:Router,private cdRef:ChangeDetectorRef) {
   
+   }
+   ngAfterViewChecked()
+   {
+     this.cdRef.detectChanges();
    }
 
   login() {

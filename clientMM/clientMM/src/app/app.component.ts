@@ -17,13 +17,8 @@ export class AppComponent {
     maxZoom: 15,
     minZoom: 8,
   }
-
+ 
   ngOnInit() {
-    navigator.geolocation.getCurrentPosition(position => {
-      this.center = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      }
-    })
+ 
   }
 }

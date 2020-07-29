@@ -184,7 +184,10 @@ textarea {
   position: absolute;
   top:91px;
 }
-
+.ui-messages.ui-messages-error{
+  margin-top: 10px;
+  background-color:white !important;
+}
 // .asterisk{
 //   color:#1ab188;
 //   margin-top: -18px;

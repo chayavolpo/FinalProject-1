@@ -29,6 +29,7 @@
              <input id="float-input" type="text" size="30" pInputText autocomplete="off" formControlName="maxPeople" [(ngModel)]="Shelter.MaxPeople"> 
              <label for="float-input">כמות מקסימלית של אנשים*</label>
            </span>
+           <p-message severity="error" text="חובה למלא כמות מקסימלית של אנשים" *ngIf="!addShelterForm.controls['maxPeople'].valid && addShelterForm.controls['maxPeople'].dirty"></p-message>
         </div>
 
        <div class="field-wrap">
@@ -36,6 +37,8 @@
               <input id="float-input" type="text" size="30" pInputText autocomplete="off" formControlName="description" [(ngModel)]="Shelter.ShelterDescription"> 
               <label for="float-input">תאור*</label>
           </span>
+          <p-message severity="error" [text]="addShelterForm.controls['description'].errors['required'] ? 'חובה למלא  תאור' : addShelterForm.controls['description'].errors['minlength'] ? ' תאור חייב לכלול לפחות 4 תווים' : addShelterForm.controls['description'].errors['maxlength'] ? 'תאור יכול לכלול עד 50 תווים ' :''" 
+          *ngIf="!addShelterForm.controls['description'].valid && addShelterForm.controls['description'].dirty"></p-message>
       </div>  
   
         <button  pButton type="submit" class="button button-block ui-button-success" >הוסף מקלט</button>

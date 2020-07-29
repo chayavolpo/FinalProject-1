@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddClerkComponent } from './Components/add-clerk/add-clerk.component';
 import { LoginComponent } from './Components/login/login.component';
 import { AddShelterComponent } from './Components/add-shelter/add-shelter.component';
+import { HomeComponent } from './home/home.component';
 // import { ViewShelterComponent } from './Components/view-shelter/view-shelter.component';
 
 
@@ -25,7 +26,7 @@ const routes: Routes = [
   // },
   {
     path:"**",
-    component:LoginComponent
+    component:HomeComponent
   },
 ];
 

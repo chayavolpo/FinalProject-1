@@ -15,20 +15,26 @@
               <input id="float-input" type="text" size="30" pInputText autocomplete="off" formControlName="userFirstName" [(ngModel)]="Clerk.ClerkFName"> 
               <label for="float-input">שם פרטי*</label>
             </span>
+            <p-message severity="error" [text]="addClerkForm.controls['userFirstName'].errors['required'] ? 'חובה למלא שם פרטי' : addClerkForm.controls['userFirstName'].errors['minlength'] ? 'שם פרטי חייב לכלול לפחות 2 תווים' : ''" 
+            *ngIf="!addClerkForm.controls['userFirstName'].valid && addClerkForm.controls['userFirstName'].dirty"></p-message>
           </div> 
-
+         
           <div class="field-wrap">
             <span class="ui-float-label">
                 <input id="float-input" type="text" size="30" pInputText autocomplete="off" formControlName="userLastName" [(ngModel)]="Clerk.ClerkLName"> 
                 <label for="float-input">שם משפחה*</label>
             </span>
+            <p-message severity="error" [text]="addClerkForm.controls['userLastName'].errors['required'] ? 'חובה למלא שם משפחה' : addClerkForm.controls['userLastName'].errors['minlength'] ? 'שם פרטי חייב לכלול לפחות 2 תווים' : ''" 
+            *ngIf="!addClerkForm.controls['userLastName'].valid && addClerkForm.controls['userLastName'].dirty"></p-message>
           </div>    
 
         <div class="field-wrap">
           <span class="ui-float-label">
-            <input id="float-input" type="text" size="30" pInputText autocomplete="off" formControlName="userPassword" [(ngModel)]="Clerk.ClerkPassword"> 
+            <input id="float-input" type="password" size="30" pInputText autocomplete="off" formControlName="userPassword" [(ngModel)]="Clerk.ClerkPassword"> 
             <label for="float-input">סיסמא*</label>
           </span>
+          <p-message severity="error" [text]="addClerkForm.controls['userPassword'].errors['required'] ? 'חובה למלא סיסמא' : addClerkForm.controls['userPassword'].errors['pattern'] ? 'הסיסמא חייבת  להכיל 8 תווים, אותיות גדולות וקטנות' : ''" 
+          *ngIf="!addClerkForm.controls['userPassword'].valid && addClerkForm.controls['userPassword'].dirty"></p-message>
         </div> 
  
         <button pButton type="submit" class="button button-block ui-button-success"  >הוסף</button>
