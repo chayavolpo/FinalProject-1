@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Clerk } from 'src/app/Models/clerks.model';
 import { ClerksService } from 'src/app/Services/clerks.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -14,8 +14,8 @@ import { Router } from '@angular/router';
   templateUrl: './add-clerk.component.html',
   styleUrls: ['./add-clerk.component.scss',
   ],
-  providers: [MessageService]
-
+  providers: [MessageService],
+//encapsulation:ViewEncapsulation.None
 })
 export class AddClerkComponent implements OnInit {
   Clerk: Clerk = new Clerk();
@@ -23,6 +23,11 @@ export class AddClerkComponent implements OnInit {
   pattern: string;
 
   msgs: Message[] = [];
+
+  header: string;
+  ifAdd: boolean;
+  ifUpdate: boolean;
+  ifDelete: boolean;
 
   constructor(private fb: FormBuilder, private clerksService: ClerksService, private router: Router) {
     // this.pattern= "(?=.*[0-9])"
@@ -37,20 +42,17 @@ export class AddClerkComponent implements OnInit {
 
       console.log(res);
       this.msgs = [];
-      this.msgs.push({ severity: 'success', summary: 'Success  ', detail: 'המשתמש התווסף בהצלחה' });
-
-      // alert("המשתמש התווסף בהצלחה");
+      this.msgs.push({ severity: 'success', summary: '', detail: 'המשתמש התווסף בהצלחה' });
 
     }, err => {
       console.log(err.error.Message);
       this.msgs = [];
-      this.msgs.push({ severity: 'error', summary: 'Error  ', detail: err.error.Message });
-      // alert(err.error.Message);
+      this.msgs.push({ severity: 'error', summary: '', detail: err.error.Message });
     });
   }
   else{
     this.msgs = [];
-    this.msgs.push({severity:'error', summary:'Error  ', detail:"עליך למלא את כל השדות"});
+    this.msgs.push({severity:'error', summary:'', detail:"עליך למלא את כל השדות"});
   }
 }
   clear() {
@@ -59,10 +61,28 @@ export class AddClerkComponent implements OnInit {
   backToHomePage() {
     this.router.navigate(["login"]);
   }
+  logOut()
+  {
+    sessionStorage.clear();
+    this.router.navigate([""]);
+  }
   ngOnInit(): void {
-
+    if(this.router.url ==='/clerks/updateSelectedClerks'){
+      this.header = "עדכון משתמש"
+      this.ifUpdate = true;
+      this.ifAdd = false;
+      this.ifDelete = false;
+      this.Clerk = this.clerksService.selectedClerk;
+      console.log(this.Clerk);
+    }
+    if(this.router.url ==='/register')
+    {
+      this.header = "הוספת משתמש"
+      this.ifAdd = true;
+      this.ifUpdate = false;
+      this.ifDelete = false;
+    }
     this.addClerkForm = this.fb.group({
-
       userFirstName: ["", [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
       userLastName: ["", [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
       userPassword: ["", [Validators.required, Validators.pattern("['a-zA-z']*.{8,}")]]
@@ -71,5 +91,26 @@ export class AddClerkComponent implements OnInit {
 
   }
 
-}
+  updateClerk(){
+    if (this.addClerkForm.valid) {
+      this.clerksService.updateClerk(this.Clerk).subscribe((res: Clerk) => {
+        console.log(res);
+        this.msgs = [];
+        this.msgs.push({ severity: 'success', summary: '', detail: 'המשתמש התעדכן בהצלחה' });
+      
+      }
+        , err => {
+          console.log(err.error.Message);
+          this.msgs = [];
+          this.msgs.push({ severity: 'error', summary: '', detail: err.error.Message });
+          // alert(err.error.Message);
+        });
+    }
+    else {
+      this.msgs = [];
+      this.msgs.push({ severity: 'error', summary: '', detail: "עליך למלא את כל השדות" });
+    }
+  }
+  }
+
 

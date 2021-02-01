@@ -28,5 +28,6 @@ namespace DAL
         public virtual DbSet<AmountPeopleInShelter> AmountPeopleInShelters { get; set; }
         public virtual DbSet<Clerk> Clerks { get; set; }
         public virtual DbSet<Shelter> Shelters { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

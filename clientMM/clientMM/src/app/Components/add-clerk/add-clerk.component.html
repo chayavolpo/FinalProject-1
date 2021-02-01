@@ -5,9 +5,10 @@
         <i class="pi pi-home"></i>
        </div>
       <div id="signup">
-        <h1>הוספת משתמש</h1>
+        <div class="logOut" (click)="logOut()">יציאה</div>
+        <h1>{{header}}</h1>
         <p-messages [(value)]="msgs"></p-messages>
-        <form [formGroup]="addClerkForm" (ngSubmit)="addClerck()">
+        <form [formGroup]="addClerkForm" (ngSubmit)="ifAdd ? addClerck() : updateClerk()">
 
         
           <div class="field-wrap">
@@ -33,12 +34,12 @@
             <input id="float-input" type="password" size="30" pInputText autocomplete="off" formControlName="userPassword" [(ngModel)]="Clerk.ClerkPassword"> 
             <label for="float-input">סיסמא*</label>
           </span>
-          <p-message severity="error" [text]="addClerkForm.controls['userPassword'].errors['required'] ? 'חובה למלא סיסמא' : addClerkForm.controls['userPassword'].errors['pattern'] ? 'הסיסמא חייבת  להכיל 8 תווים, אותיות גדולות וקטנות' : ''" 
+          <p-message severity="error" [text]="addClerkForm.controls['userPassword'].errors['required'] ? 'חובה למלא סיסמא' : addClerkForm.controls['userPassword'].errors['pattern'] ? 'סיסמא חייבת להכיל 8 תווים, אותיות קטנות וגדולות ומספרים' : ''" 
           *ngIf="!addClerkForm.controls['userPassword'].valid && addClerkForm.controls['userPassword'].dirty"></p-message>
         </div> 
  
-        <button pButton type="submit" class="button button-block ui-button-success"  >הוסף</button>
-        
+        <button pButton type="submit" class="button button-block ui-button-success sizeOfButton" *ngIf="ifAdd">הוספת משתמש</button>
+        <button pButton type="submit" class="button button-block ui-button-success sizeOfButton" *ngIf="ifUpdate">עדכן משתמש</button>
         <!-- <button type="button" pButton (click)="clear()" icon="pi pi-times" style="float:right" label="Clear"></button> -->
       </form>
     

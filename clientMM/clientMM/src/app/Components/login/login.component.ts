@@ -19,9 +19,9 @@ export class LoginComponent implements OnInit {
   loginForm:FormGroup;
   ifClerkLogin:boolean=false;
   msgs: Message[] = [];
-
-  constructor(private fb:FormBuilder,private clerksService: ClerksService,private router:Router,private cdRef:ChangeDetectorRef) {
   
+  constructor(private fb:FormBuilder,private clerksService: ClerksService,private router:Router,private cdRef:ChangeDetectorRef) {
+      
    }
    ngAfterViewChecked()
    {
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       }
       else{
         this.msgs = [];
-        this.msgs.push({severity:'error', summary:'Error  ', detail:"חסרה הרשאת גישה"});
+        this.msgs.push({severity:'error', summary:'', detail:"חסרה הרשאת גישה"});
       }
        
     }
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
    }
    else{
     this.msgs = [];
-    this.msgs.push({severity:'error', summary:'Error  ', detail:"עליך למלא את כל השדות"});
+    this.msgs.push({severity:'error', summary:'', detail:"עליך למלא את כל השדות"});
    }
   }
   clear() {
@@ -60,21 +60,44 @@ export class LoginComponent implements OnInit {
     if(this.Clerk.ClerkKey!=null)
     {
       this.ifClerkLogin=true;
+      sessionStorage.setItem("ifClerkLogin",JSON.stringify(this.ifClerkLogin));
+      sessionStorage.setItem("currentUser",JSON.stringify(this.Clerk));
        return true;
     }
     return false;
+  }
+  openAddClerk()
+  {
+    this.router.navigate(["register"]);
   }
   openAddShelter()
   {
      this.router.navigate(["shelters/addShelter"]);
   }
+  openUpdateClerk()
+  {
+    this.router.navigate(["clerks/updateClerks"])
+  }
+  openUpdateShelter()
+  {
+    this.router.navigate(["shelters/updateShelter"])
+  }
+  logOut()
+  {
+    sessionStorage.clear();
+    this.router.navigate([""]);
+  }
   ngOnInit(): void {
-
+    this.ifClerkLogin=JSON.parse(sessionStorage.getItem("ifClerkLogin"));
+    if(JSON.parse(sessionStorage.getItem("currentUser"))!=null)
+         this.Clerk = JSON.parse(sessionStorage.getItem("currentUser"));
+    console.log(sessionStorage.getItem("ifClerkLogin"));
+    console.log(this.ifClerkLogin);
     this.loginForm = this.fb.group({
       userName:["",Validators.required],
       userPassword:["",Validators.required]
     });
-
+    
   }
 
 }

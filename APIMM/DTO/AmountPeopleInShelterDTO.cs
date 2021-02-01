@@ -12,7 +12,14 @@ namespace DTO
         static DAL.DataBaseMMEntities db = new DAL.DataBaseMMEntities();
         public int AmountpplKey { get; set; }
         public int ShelterKey { get; set; }
-        public Nullable<int> AmountPPLSpeDH { get; set; }
+        Nullable<int> _amountPPLSpeDH;
+        public Nullable<int> AmountPPLSpeDH {
+            get { return _amountPPLSpeDH; }
+            set
+            {
+                _amountPPLSpeDH = value;
+            }
+        }
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<System.TimeSpan> Time { get; set; }
 
@@ -26,7 +33,6 @@ namespace DTO
         }
         public AmountPeopleInShelterDTO()
         {
-          
 
         }
 
@@ -41,20 +47,7 @@ namespace DTO
             return amountPPLDAL;
         }
 
-        public static bool UpdateAmountPPLInShelter(AmountPeopleInShelterDTO amountPPLDTO)
-        {
-            DAL.AmountPeopleInShelter amountPPLDAL = DtoToDAL(amountPPLDTO);
-            try
-            {
-                db.AmountPeopleInShelters.Add(amountPPLDAL);
-                db.SaveChanges();
-                return true;
-            }
-            catch(Exception e)
-            {
-                return false;
-            }
-        }
+       
 
         
     }

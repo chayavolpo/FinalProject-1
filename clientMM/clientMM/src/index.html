@@ -6,9 +6,27 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <script src="https://maps.googleapis.com/maps/api/js?hl=he&language=iw&key=AIzaSyDdPX8_Gp-cDDJVJGFFi1Y_kUAObIagriQ"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?hl=he&amp;language=iw&amp;key=your key&amp;libraries=places"></script>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
 </head>
 <body>
   <app-root></app-root>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>
+<script type="text/javascript"> 
+// Helper to create custom event with IE11 compatibility. 
+function RsCustomEvent ( event, params )
+ {
+    var evt = document.createEvent('CustomEvent' ); 
+    evt.initCustomEvent( event,false,false,params); 
+    return evt; 
+  }
+  function showDialog(address){
+    address = address.toString().split('@').join("'");
+    window.dispatchEvent(RsCustomEvent('myCustomEvent',address)); 
+  }
+</script>
+
 </html>
+

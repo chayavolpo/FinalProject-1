@@ -21,10 +21,11 @@ namespace DAL
         }
     
         public int ShelterKey { get; set; }
-        public double LatShelter { get; set; }
-        public double LngShelter { get; set; }
         public Nullable<int> MaxPeople { get; set; }
         public string ShelterDescription { get; set; }
+        public string ShelterStreet { get; set; }
+        public string City { get; set; }
+        public string StreetNumber { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AmountPeopleInShelter> AmountPeopleInShelters { get; set; }

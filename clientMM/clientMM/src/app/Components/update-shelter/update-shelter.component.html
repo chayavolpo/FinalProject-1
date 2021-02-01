@@ -1,0 +1,11 @@
+<div class="homeIcon" pTooltip="חזרה לדף הראשי" tooltipPosition="bottom" (click)="backToHomePage()">
+    <i class="pi pi-home"></i>
+</div>
+<div class="logOut" (click)="logOut()">יציאה</div>
+<p-orderList [value]="sheltersList"  [listStyle]="{'height':'250px'}" header="רשימת מקלטים" filter="filter" filterBy="City" filterPlaceholder="סינון לפי עיר" dragdrop="true">
+    <ng-template let-shelter pTemplate="item">
+        <div class="ui-helper-clearfix" (click)="shelterSelected(shelter)">
+            <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{shelter.ShelterStreet}} - {{shelter.StreetNumber}} - {{shelter.City}}</div>
+        </div>
+    </ng-template>
+</p-orderList>

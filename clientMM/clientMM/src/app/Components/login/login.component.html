@@ -2,7 +2,10 @@
 <div class="form">
     <div class="tab-content">
       <div id="signup">
-        <h1>מרחב מ(א)ו(ר)גן</h1>
+        <div class="logOut" (click)="logOut()">יציאה</div>
+        <div class="logoDiv">
+          <img src="../../../assets/Images/לוגו סופי.png" class="logoImage"/>
+        </div>
         <div class="messageLtr">
           <p-messages [(value)]="msgs" ></p-messages>
         </div>
@@ -23,16 +26,17 @@
             <input id="float-input" type="password" size="30" pInputText autocomplete="off" formControlName="userPassword" [(ngModel)]="Clerk.ClerkPassword"> 
             <label for="float-input">סיסמא*</label>
           </span>
-          <p-message severity="error" text="חובה למלא שם משתמש" *ngIf="!loginForm.controls['userPassword'].valid && loginForm.controls['userPassword'].dirty"></p-message>
+          <p-message severity="error" text="חובה למלא סיסמא" *ngIf="!loginForm.controls['userPassword'].valid && loginForm.controls['userPassword'].dirty"></p-message>
         </div>
           
-        <div *ngIf="ifClerkLogin">שלום {{Clerk.ClerkFName}}</div>
+        <div *ngIf="ifClerkLogin" id="helloUser">שלום {{Clerk.ClerkFName}}</div>
 
   
         <button type="submit" class="button button-block" *ngIf="!ifClerkLogin" >הכנס</button>
-        <button class="button button-block" *ngIf="Clerk.IfManager" routerLink="register" routerLinkActive="active-link">הוספת משתמש</button>
-        <button class="button button-block" *ngIf="ifClerkExists()" (click)="openAddShelter()">הוספת מקלט</button>
-  
+        <button class="button button-block addUpdateButtons" *ngIf="Clerk.IfManager" (click)="openAddClerk()">הוספת משתמש</button>
+        <button class="button button-block addUpdateButtons" *ngIf="Clerk.IfManager" (click)="openUpdateClerk()">עדכון משתמש</button>
+        <button class="button button-block addUpdateButtons" *ngIf="ifClerkExists()" (click)="openAddShelter()">הוספת מקלט</button>
+        <button class="button button-block addUpdateButtons" *ngIf="ifClerkExists()" (click)="openUpdateShelter()">עדכון מקלט</button>
         </form>
   
       </div>

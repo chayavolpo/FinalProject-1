@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DataBaseMMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DataBaseMMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AmountPeopleInShelter">
           <Key>
             <PropertyRef Name="AmountpplKey" />
@@ -30,10 +30,21 @@
             <PropertyRef Name="ShelterKey" />
           </Key>
           <Property Name="ShelterKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LatShelter" Type="float" Nullable="false" />
-          <Property Name="LngShelter" Type="float" Nullable="false" />
           <Property Name="MaxPeople" Type="int" />
           <Property Name="ShelterDescription" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShelterStreet" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="StreetNumber" Type="nvarchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_AmountPeopleInShelter_Shelters">
           <End Role="Shelters" Type="Self.Shelters" Multiplicity="1" />
@@ -47,20 +58,61 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DataBaseMMModelStoreContainer">
           <EntitySet Name="AmountPeopleInShelter" EntityType="Self.AmountPeopleInShelter" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clerks" EntityType="Self.Clerks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Shelters" EntityType="Self.Shelters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_AmountPeopleInShelter_Shelters" Association="Self.FK_AmountPeopleInShelter_Shelters">
             <End Role="Shelters" EntitySet="Shelters" />
             <End Role="AmountPeopleInShelter" EntitySet="AmountPeopleInShelter" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DataBaseMMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DataBaseMMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AmountPeopleInShelters" EntityType="DataBaseMMModel.AmountPeopleInShelter" />
+          <EntitySet Name="Clerks" EntityType="DataBaseMMModel.Clerk" />
+          <EntitySet Name="Shelters" EntityType="DataBaseMMModel.Shelter" />
+          <EntitySet Name="sysdiagrams" EntityType="DataBaseMMModel.sysdiagram" />
+          <AssociationSet Name="FK_AmountPeopleInShelter_Shelters" Association="DataBaseMMModel.FK_AmountPeopleInShelter_Shelters">
+            <End Role="Shelter" EntitySet="Shelters" />
+            <End Role="AmountPeopleInShelter" EntitySet="AmountPeopleInShelters" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="AmountPeopleInShelter">
           <Key>
             <PropertyRef Name="AmountpplKey" />
@@ -70,16 +122,16 @@
           <Property Name="AmountPPLSpeDH" Type="Int32" />
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="Time" Type="Time" Precision="7" />
-          <NavigationProperty Name="Shelter" Relationship="Self.FK_AmountPeopleInShelter_Shelters" FromRole="AmountPeopleInShelter" ToRole="Shelters" />
+          <NavigationProperty Name="Shelter" Relationship="DataBaseMMModel.FK_AmountPeopleInShelter_Shelters" FromRole="AmountPeopleInShelter" ToRole="Shelter" />
         </EntityType>
         <EntityType Name="Clerk">
           <Key>
             <PropertyRef Name="ClerkKey" />
           </Key>
           <Property Name="ClerkKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ClerkFName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ClerkLName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ClerkPassword" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ClerkFName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ClerkLName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ClerkPassword" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="IfManager" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Shelter">
@@ -87,17 +139,28 @@
             <PropertyRef Name="ShelterKey" />
           </Key>
           <Property Name="ShelterKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LatShelter" Type="Double" Nullable="false" />
-          <Property Name="LngShelter" Type="Double" Nullable="false" />
           <Property Name="MaxPeople" Type="Int32" />
           <Property Name="ShelterDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AmountPeopleInShelters" Relationship="Self.FK_AmountPeopleInShelter_Shelters" FromRole="Shelters" ToRole="AmountPeopleInShelter" />
+          <Property Name="ShelterStreet" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="StreetNumber" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AmountPeopleInShelters" Relationship="DataBaseMMModel.FK_AmountPeopleInShelter_Shelters" FromRole="Shelter" ToRole="AmountPeopleInShelter" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_AmountPeopleInShelter_Shelters">
-          <End Role="Shelters" Type="Self.Shelter" Multiplicity="1" />
-          <End Role="AmountPeopleInShelter" Type="Self.AmountPeopleInShelter" Multiplicity="*" />
+          <End Type="DataBaseMMModel.Shelter" Role="Shelter" Multiplicity="1" />
+          <End Type="DataBaseMMModel.AmountPeopleInShelter" Role="AmountPeopleInShelter" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Shelters">
+            <Principal Role="Shelter">
               <PropertyRef Name="ShelterKey" />
             </Principal>
             <Dependent Role="AmountPeopleInShelter">
@@ -105,15 +168,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DataBaseMMEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AmountPeopleInShelters" EntityType="Self.AmountPeopleInShelter" />
-          <EntitySet Name="Clerks" EntityType="Self.Clerk" />
-          <EntitySet Name="Shelters" EntityType="Self.Shelter" />
-          <AssociationSet Name="FK_AmountPeopleInShelter_Shelters" Association="Self.FK_AmountPeopleInShelter_Shelters">
-            <End Role="Shelters" EntitySet="Shelters" />
-            <End Role="AmountPeopleInShelter" EntitySet="AmountPeopleInShelters" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -123,33 +177,45 @@
           <EntitySetMapping Name="AmountPeopleInShelters">
             <EntityTypeMapping TypeName="DataBaseMMModel.AmountPeopleInShelter">
               <MappingFragment StoreEntitySet="AmountPeopleInShelter">
-                <ScalarProperty Name="AmountpplKey" ColumnName="AmountpplKey" />
-                <ScalarProperty Name="ShelterKey" ColumnName="ShelterKey" />
-                <ScalarProperty Name="AmountPPLSpeDH" ColumnName="AmountPPLSpeDH" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="AmountPPLSpeDH" ColumnName="AmountPPLSpeDH" />
+                <ScalarProperty Name="ShelterKey" ColumnName="ShelterKey" />
+                <ScalarProperty Name="AmountpplKey" ColumnName="AmountpplKey" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Clerks">
             <EntityTypeMapping TypeName="DataBaseMMModel.Clerk">
               <MappingFragment StoreEntitySet="Clerks">
-                <ScalarProperty Name="ClerkKey" ColumnName="ClerkKey" />
-                <ScalarProperty Name="ClerkFName" ColumnName="ClerkFName" />
-                <ScalarProperty Name="ClerkLName" ColumnName="ClerkLName" />
-                <ScalarProperty Name="ClerkPassword" ColumnName="ClerkPassword" />
                 <ScalarProperty Name="IfManager" ColumnName="IfManager" />
+                <ScalarProperty Name="ClerkPassword" ColumnName="ClerkPassword" />
+                <ScalarProperty Name="ClerkLName" ColumnName="ClerkLName" />
+                <ScalarProperty Name="ClerkFName" ColumnName="ClerkFName" />
+                <ScalarProperty Name="ClerkKey" ColumnName="ClerkKey" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Shelters">
             <EntityTypeMapping TypeName="DataBaseMMModel.Shelter">
               <MappingFragment StoreEntitySet="Shelters">
-                <ScalarProperty Name="ShelterKey" ColumnName="ShelterKey" />
-                <ScalarProperty Name="LatShelter" ColumnName="LatShelter" />
-                <ScalarProperty Name="LngShelter" ColumnName="LngShelter" />
-                <ScalarProperty Name="MaxPeople" ColumnName="MaxPeople" />
+                <ScalarProperty Name="StreetNumber" ColumnName="StreetNumber" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ShelterStreet" ColumnName="ShelterStreet" />
                 <ScalarProperty Name="ShelterDescription" ColumnName="ShelterDescription" />
+                <ScalarProperty Name="MaxPeople" ColumnName="MaxPeople" />
+                <ScalarProperty Name="ShelterKey" ColumnName="ShelterKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DataBaseMMModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,5 +1,4 @@
 import { Time } from '@angular/common'
-
 export class AmountPeopleInShelter {
       public  AmountpplKey :number
       public  ShelterKey :number

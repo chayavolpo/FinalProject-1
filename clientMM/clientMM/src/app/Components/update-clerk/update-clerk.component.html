@@ -1,0 +1,11 @@
+<div class="homeIcon" pTooltip="חזרה לדף הראשי" tooltipPosition="bottom" (click)="backToHomePage()">
+    <i class="pi pi-home"></i>
+</div>
+<div class="logOut" (click)="logOut()">יציאה</div>
+<p-orderList [value]="clerksList"  [listStyle]="{'height':'250px'}" header="רשימת משתמשים" filter="filter" filterBy="ClerkLName" filterPlaceholder="סינון לפי שם משפחה" dragdrop="true">
+    <ng-template let-clerk pTemplate="item">
+        <div class="ui-helper-clearfix" (click)="clerkSelected(clerk)">
+            <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{clerk.ClerkFName}} - {{clerk.ClerkLName}}</div>
+        </div>
+    </ng-template>
+</p-orderList>

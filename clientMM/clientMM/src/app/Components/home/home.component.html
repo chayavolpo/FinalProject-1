@@ -1,0 +1,72 @@
+
+<div id="loginButton" (click)="goToLogIn()">Log In</div>
+<div class="logoDiv">
+  <img src="../../../assets/Images/לוגו סופי.png" class="logoImage"/>
+</div>
+<p-messages *ngIf="ifMoreShelters" [(value)]="msgs"></p-messages>
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="18">
+  <agm-direction *ngIf="origin && destination" 
+  [origin]="origin" 
+  [destination]="destination" 
+  [travelMode]="mode"
+  [renderOptions]="renderOptions" 
+  [markerOptions]="markerOptions1" 
+  [infowindow]="infoWindow" 
+  (sendInfowindow)="obtainInfowindow($event)"
+  >
+  </agm-direction>
+
+  <div *ngIf="origin && destination && dir1.origin && dir2.origin">
+  <agm-direction  
+  [origin]="dir1.origin" 
+  [destination]="dir1.destination" 
+  [travelMode]="mode"
+    [renderOptions]="dir1.renderOptions" 
+    [markerOptions]="markerOptions2" 
+    [infowindow]="infoWindow" 
+    (sendInfowindow)="obtainInfowindow($event)"
+  >
+  </agm-direction>
+  <agm-direction  
+  [origin]="dir2.origin" 
+  [destination]="dir2.destination" 
+  [travelMode]="mode"
+    [renderOptions]="dir2.renderOptions" 
+    [markerOptions]="markerOptions3" 
+    [infowindow]="infoWindow" 
+    (sendInfowindow)="obtainInfowindow($event)"
+  >
+  </agm-direction>
+  </div>
+  <agm-marker *ngIf="ifMarker" [latitude]="lat" [longitude]="lng" 
+  (mouseOver)="onMouseOver(infoWindow, $event)" 
+  (mouseOut)="onMouseOut(infoWindow, $event)"
+  [iconUrl] ="
+  {
+    url: '../../../assets/Images/smallOrangeMarker.png',
+    scaledSize: {
+        width: 35,
+        height: 60
+    }
+  }"
+  >
+    <agm-info-window [disableAutoPan]="false" [isOpen]="true" #infoWindow>היי מקומך כאן...</agm-info-window>
+  </agm-marker>
+
+</agm-map>
+<button class="button button-block homeButtonsShelter" (click)="getNearestShelter()">הראה מקלט קרוב</button>
+<button class="button button-block homeButtonsShelter" (click)="showMoreShelters()" *ngIf = "ifMoreShelters">הראה עוד מקלטים</button>
+<p-dialog  header="נא להזין כמות משוערת של שוהים במקלט" [(visible)]="displayModal"  [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false">
+    <div class="field-wrap">
+      <span class="ui-float-label">
+        <input id="float-input" type="number" size="30" pInputText autocomplete="off" class="amountPeopleInput" [(ngModel)]="AmountPeopleInShelter.AmountPPLSpeDH"> 
+        <label for="float-input">כמות השוהים במקלט*</label>
+      </span>
+    </div> 
+        <p-footer>
+            <button type="button" pButton icon="pi pi-check" (click)="updateAmountPPLInShelter()" label="אישור"></button>
+        </p-footer>
+</p-dialog>
+
+

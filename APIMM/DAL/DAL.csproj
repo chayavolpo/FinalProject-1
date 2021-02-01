@@ -75,6 +75,9 @@
     <Compile Include="Shelter.cs">
       <DependentUpon>ModelMM.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>ModelMM.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
@@ -82,8 +85,10 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelMM.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="ClassDiagram1.cd" />
     <None Include="ModelMM.edmx.diagram">
       <DependentUpon>ModelMM.edmx</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

@@ -1,3 +1,7 @@
+# GoogleMaps API key
+In order to run this app you are required to have a googlemaps API key.
+After you get the key paste it in the index.html file in the script tag where you see key = your key.
+
 # ClientMM
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.

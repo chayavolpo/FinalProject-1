@@ -50,11 +50,15 @@ $br: 4px;
 
 
 html {
+  height: 98%;
   overflow-y: scroll;
 }
 
 body {
-  background: $body-bg;
+  height: 100%;
+  //background: $body-bg;
+  background-color: #24333C;
+  //background: rgba($form-bg, 0.9);
   // font-family: "Titillium Web", sans-serif;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-family: sans-serif;
@@ -71,12 +75,15 @@ a {
 }
 
 .form {
-  background: rgba($form-bg, 0.9);
+  height:100%;
+  min-height: 100%;
+  //background: rgba($form-bg, 0.9);
+  background-color: #24333C;
   padding: 40px;
-  max-width: 600px;
-  margin: 40px auto;
+  max-width: 100%;
+  margin: 0px auto;
   border-radius: $br;
-  box-shadow: 0 4px 10px 4px rgba($form-bg, 0.3);
+ // box-shadow: 0 4px 10px 4px rgba($form-bg, 0.3);
 }
 
 .tab-group {
@@ -120,7 +127,7 @@ h1 {
   color: $white;
   font-weight: $thin;
   font-family: sans-serif;
-  margin: 0 0 40px;
+  margin: 0 0 80px;
 }
 
 label {
@@ -173,17 +180,17 @@ textarea {
   }
 }
 
-body .ui-float-label>input:focus ~ label, .ui-float-label>input.ui-state-filled ~ label, .ui-float-label>.ui-inputwrapper-focus ~ label, .ui-float-label>.ui-inputwrapper-filled ~ label {
-  top: -.75em;
+body .ui-float-label > input:focus ~ label, .ui-float-label > input.ui-state-filled ~ label, .ui-float-label > .ui-inputwrapper-focus ~ label, .ui-float-label > .ui-inputwrapper-filled ~ label {
+  top: -0.75em;
   font-size: 14px;
   letter-spacing: 1px;
-  color:white;
+  color:white !important;
 }
 // .ui-float-label>input:focus ~ label p, .ui-float-label>input.ui-state-filled ~ label p, .ui-float-label>.ui-inputwrapper-focus ~ label p, .ui-float-label>.ui-inputwrapper-filled ~ label p {
 //    margin-top: -12px;
 //    margin-right: 78px;
 // }
-body .ui-inputtext:enabled:hover:not(.ui-state-error) {
+ .ui-inputtext:enabled:hover:not(.ui-state-error) {
   border-color:$gray-light;
 }
 body .ui-inputtext:enabled:focus:not(.ui-state-error) {
@@ -230,10 +237,10 @@ textarea {
   outline: none;
   border-radius: 0;
   padding: 15px 0;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: $bold;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.07em;
   background: $main;
   color: $white;
   // transition: all.5s ease;
@@ -253,4 +260,90 @@ textarea {
 .forgot {
   margin-top: -20px;
   text-align: right;
+}
+.logOut{
+  color: white;
+  position: absolute;
+  bottom: 92vh;
+  right: 83vw;
+}
+body .ui-button {
+  margin: 0;
+  color: #ffffff;
+  background-color: #1ab188 !important;
+  border: 1px solid #1ab188 !important;
+  font-size: 14px;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+body .ui-orderlist .ui-orderlist-controls {
+  padding: 0.571em 1em !important;
+  margin-top: 49px !important;
+}
+
+.sizeOfButton{
+  height: 15vh;
+}
+body .ui-messages.ui-messages-error,body .ui-messages {
+  background-color: #f8b7bd;
+  border: 0 none;
+  color: #212121;
+  direction: ltr !important;
+  margin-top: -12vh;
+  margin-bottom: 5vh;
+}
+.pi-times:before {
+  content: "";
+  font-size: 0.6em !important;
+  font-weight: 900 !important;
+  padding-left: 2.5vw !important;
+  padding-right: 0vw !important;
+  text-shadow: 0px 1px, 1px 0px, 1px 1px !important;
+}
+body .ui-messages.ui-messages-success {
+  background-color: #b7d8b7;
+  border: 0 none;
+  color: #212121;
+  direction: ltr;
+  margin-top: -12vh;
+  margin-bottom: 5vh;
+}
+
+body .ui-messages.ui-messages-error {
+  background-color: #f8b7bd;
+  border: 0 none;
+  color: #212121;
+  direction: rtl;
+  text-align: right;
+  padding-left: 25px;
+}
+
+a.ui-messages-close{
+  margin-top: -9px !important;
+  margin-right: -4px !important;
+}
+
+.ui-messages-close pi-times,body .ui-messages-close .pi{
+  font-size: 0.6em !important;
+}
+
+body .ui-messages.ui-messages-error .ui-messages-icon{
+  margin-top: 4px;
+}
+.ui-messages ul{
+  margin-top: 9px !important;
+  margin-left: 8px !important;
+}
+
+.ui-orderlist-controls{
+  visibility: hidden !important;
+}
+body .ui-orderlist .ui-orderlist-caption{
+  background-color: #1ab188 !important;
+}
+.ui-orderlist-list-container{
+  margin-top: -32px !important;
+}
+body .ui-orderlist .ui-orderlist-list{
+  height: 370px !important;
 }

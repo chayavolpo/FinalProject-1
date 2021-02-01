@@ -34,10 +34,6 @@ namespace DTO
 
         }
 
-        public static ClerkDTO ClerkExsits(ClerkDTO clerk)
-        {
-            return new ClerkDTO(db.Clerks.FirstOrDefault(p => p.ClerkPassword == clerk.ClerkPassword && p.ClerkFName==clerk.ClerkFName));
-        }
 
         public static DAL.Clerk DtoToDAL(ClerkDTO clerkDTO)
         {
@@ -49,19 +45,7 @@ namespace DTO
             clerkDAL.IfManager = clerkDTO.IfManager;
             return clerkDAL;
         }
-        public static ClerkDTO AddNewClerk(ClerkDTO newClerk, ref string message)
-        {
-            DAL.Clerk IfPasswordExists = db.Clerks.FirstOrDefault(c => c.ClerkPassword == newClerk.ClerkPassword);
-            if (IfPasswordExists != null)
-            {
-                message = "סיסמא זו קיימת במערכת, אנא הקש סיסמא חדשה";
-                return null;
-            }
-            DAL.Clerk clerkDAL = DtoToDAL(newClerk);
-            db.Clerks.Add(clerkDAL);
-            db.SaveChanges();
-            return newClerk;
-        }
+
 
     }
 

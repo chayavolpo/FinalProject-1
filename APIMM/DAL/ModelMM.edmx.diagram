@@ -5,10 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="3eae09eef8224d2a82222caac57db047" Name="Diagram1">
-        <EntityTypeShape EntityType="DataBaseMMModel.AmountPeopleInShelter" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataBaseMMModel.Clerk" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataBaseMMModel.Shelter" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <AssociationConnector Association="DataBaseMMModel.FK_AmountPeopleInShelter_Shelters" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DataBaseMMModel.AmountPeopleInShelter" Width="1.5" PointX="3.25" PointY="0.5" />
+        <EntityTypeShape EntityType="DataBaseMMModel.Clerk" Width="1.5" PointX="1" PointY="4.25" />
+        <EntityTypeShape EntityType="DataBaseMMModel.Shelter" Width="1.5" PointX="1" PointY="0.5" />
+        <EntityTypeShape EntityType="DataBaseMMModel.sysdiagram" Width="1.5" PointX="3" PointY="4.25" />
+        <AssociationConnector Association="DataBaseMMModel.FK_AmountPeopleInShelter_Shelters" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,5 +1,29 @@
-@import '../../../styles.scss'
+@import '../../../styles.scss';
 
+#helloUser{
+    text-align: center;
+    color: white;
+    padding-bottom: 12vh;
+    padding-top: 2vh;
+    font-size: 1.8em;
+    font-weight: bolder;
+}
+.logoDiv{
+    margin: 0 0 80px;
+    margin-right: 9vw;
+    height:17vh;
+    width: 53vw;
+}
+.logoImage{
+    width:100%;
+    height:100%;
+}
+.addUpdateButtons{
+    font-size: 1.2rem;
+    width: 45%;
+    display: inline-block;
+    margin: 2px;
+}
 // $body-bg: #c1bdba;
 // $form-bg: #13232f;
 // $white: #ffffff;
